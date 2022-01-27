@@ -90,9 +90,9 @@ public class SecurityUtils {
             }
 
             if (securityProvider == null) {
-                MessageDigest.getInstance("MD5", provider);
-                KeyAgreement.getInstance("DH", provider);
-                setSecurityProvider(provider.getName());
+                MessageDigest.getInstance("MD5");
+                KeyAgreement.getInstance("DH");
+                //setSecurityProvider(provider.getName());
                 return true;
             }
         } catch (NoSuchAlgorithmException e) {
