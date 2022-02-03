@@ -6,7 +6,7 @@ plugins {
   id "maven-publish"
   id "signing"
   id 'pl.allegro.tech.build.axion-release' version '1.13.3'
-  id "com.bmuschko.docker-remote-api" version "7.1.0"
+  id "com.bmuschko.docker-remote-api" version "6.2.0"
   id "com.github.hierynomus.license" version "0.16.1"
   id 'ru.vyarus.github-info' version '1.2.0'
   id "io.github.gradle-nexus.publish-plugin" version "1.0.0"
@@ -68,10 +68,6 @@ license {
   excludes(['**/djb/Curve25519.java', '**/sshj/common/Base64.java', '**/com/hierynomus/sshj/userauth/keyprovider/bcrypt/*.java'])
 }
 
-if (!JavaVersion.current().isJava9Compatible()) {
-  throw new GradleScriptException("Minimum compilation version is Java 9")
-}
-
 // This disables the pedantic doclint feature of JDK8
 if (JavaVersion.current().isJava8Compatible()) {
   tasks.withType(Javadoc) {
@@ -79,9 +75,9 @@ if (JavaVersion.current().isJava8Compatible()) {
   }
 }
 
-compileJava {
-  options.compilerArgs.addAll(['--release', '7'])
-}
+//compileJava {
+//  options.compilerArgs.addAll(['-release', '7'])
+//}
 
 task writeSshjVersionProperties {
   doLast {

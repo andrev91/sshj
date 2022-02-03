@@ -110,7 +110,7 @@ public class ParametersTest {
     public void testToString() {
         final Parameters first = new Parameters("127.0.0.1", 8080, "github.com", 443);
         assertNotNull(first.toString());
-        assertFalse(first.toString().isBlank());
+//        assertFalse(first.toString().isBlank());
         assertTrue(first.toString().contains("127.0.0.1"));
         assertTrue(first.toString().contains("8080"));
         assertTrue(first.toString().contains("github.com"));
